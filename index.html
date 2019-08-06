@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CMEs and the OVRO-LWA</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="shortcut icon" href="Assets/Images/Favicon/Caltech (alt).png" type="image/x-icon"/>
+        
+        <meta charset="UTF-8">
+        <meta name="description" content="Introductory website to solar eruptions with reference links for further readings.">
+        <meta name="keywords" content="Astronomy, Coronal Mass Ejection, Solar Flare, CME, Solar Eruption, Caltech, Spaceweather.com, SOHO, NASA, radioastronomy, Hallinan Group, LWA, Owen Valley Observatory, introduction">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 id="websiteTitle">CMEs and the OVRO-LWA</h1>
+
+
+        <!-- Visible and Radio Sun Images -->
+
+        <div class="flexContainer" id="websiteImagery">
+            <div class="carouselContainer">
+                <center>
+                    <h2>SOHO: Visible</h2>
+                    <img class="carouselFilter" id="visibleSunCarouselFilter" alt="Visible Sun Carousel Filter" onerror="filterCarousel('visible');" onload="continueCarouselFilter('visible');"/>
+                    <img id="visibleSunCarousel" alt="LASCO C2 Images" onerror="reportImage('visible');" onload="relocateCarouselSlider('visible');"/><br>
+                </center>
+                <div class="verticalSliderWrapper" id="visibleSunCarouselSliderContainer">
+                    <input type="range" min="0" max="47" value="0" step="1" tabindex="-1" id="visibleSunCarouselSlider">
+                </div><br>
+                <center>
+                    <h2 id="visibleSunDate" class="carouselDate"></h2>
+                    <a href="https://sohowww.nascom.nasa.gov/data/realtime-images.html" target="_blank" class="carouselImageArchiveLink">More Images</a>
+                </center>
+            </div>
+            <div class="carouselContainer">
+                <center>
+                    <h2>OVRO-LWA: Radio</h2>
+                    <img class="carouselFilter" id="radioSunCarouselFilter" alt="Radio Sun Carousel Filter" onerror="filterCarousel('radio');" onload="continueCarouselFilter('radio');"/>
+                    <img id="radioSunCarousel" alt="OVRO-LWA Images" onerror="reportImage('radio');" onload="relocateCarouselSlider('radio');"/><br>
+                </center>
+                <div class="verticalSliderWrapper" id="radioSunCarouselSliderContainer">
+                    <input type="range" min="0" max="47" value="0" step="1" tabindex="-1" id="radioSunCarouselSlider">
+                </div><br>
+                <center>
+                    <h2 id="radioSunDate" class="carouselDate"></h2>
+                    <a href="https://pineapplesofjustice.github.io/OVRO-LWA-Data-Access/" target="_blank" class="carouselImageArchiveLink">More Images</a>
+                </center>
+            </div>
+        </div>
+        <center>
+            <button id="updateButton" onclick="updateCarouselArrays()">"Check for Update"</button>
+        </center><br>
+
+
+        <!-- Navigation Bar -->
+
+        <nav id="navBar">
+            <a href="#visibleSunCarousel"><button tabindex="-1" class="left">Visual</button></a>
+            <a href="#overviewHeader"><button tabindex="-1" class="up">Overview</button></a>
+            <a href="#historyHeader"><button tabindex="-1" class="down">History</button></a>
+            <a href="#dataHeader"><button tabindex="-1" class="up">Data</button></a>
+            <a href="#exoplanetHeader"><button tabindex="-1" class="down">Exoplanet</button></a>
+            <a href="#creditHeader"><button tabindex="-1" class="up">Credit</button></a>
+            <a href="#referenceHeader"><button tabindex="-1" class="right">Reference</button></a>
+        </nav>
+        <button id="navBarLocator" onclick="displayNavigationBar();"><i class="arrow" id="navBarLocatorArrow"></i></button>
+
+        <!-- Text Boxes -->
+
+        <div class="headerContainer" id="crossHereToHideNavBar">
+            <h2 id="overviewHeader">Overview: Something about Space</h2>
+        </div>
+        <div class="contentContainer">
+            <p id="overviewSpace1"></p>
+            <div class="visualAideContainer">
+                <div class="imageContainer">
+                    <center>
+                        <div tabindex="-1" class="animateSpritesheet" id="solarMagneticFieldSprite"></div>
+                    </center>
+                </div>
+                <div class="captionContainer">
+                    <p>For those who can't access the video, here is a short clip of it. Hover over image for animation.<br><br>[Image Courtesy of Tom Bridgman]</p>
+                </div>
+            </div>
+            <p id="overviewSpace2"></p>
+            <div class="visualAideContainer">
+                <div class="imageContainer">
+                    <center>
+                        <div tabindex="-1" class="animateSpritesheet" id="cmeCoronaSprite"></div>
+                    </center>
+                </div>
+                <div class="captionContainer">
+                    <p>A Coronal Mass Ejection as observed from Earth using the Large Angle Spectrometric Coronagraph (LASCO).<br><br>[Image Courtesy of SOHO]</p>
+                </div>
+            </div>
+            <p id="overviewSpace3"></p>
+            <div class="visualAideContainer">
+                <div class="imageContainer">
+                    <img src="Assets/Images/Visual Aide/Earth Magnetic Field.jpg" alt="Earth's Magnetic Field"/>
+                </div>
+                <div class="captionContainer">
+                    <p>Earth's magnetic field is affected by the sun's magnetic field. As shown in the image, it is blown away, similar to a comet.<br><br>[Image Courtesy of NASA]</p>
+                </div>
+            </div>
+        </div>
+        <div class="contentToBodyBackgroundBlur"></div>
+
+        <div class="headerContainer">
+            <h2 id="historyHeader">History: Shadow of the Future</h2>
+        </div>
+        <div class="contentContainer">
+            <p id="historySpace1"></p>
+            <div class="tableContainer">
+                <table>
+                    <caption id="flareClassificationCaption">Classification of Solar Flares</caption>
+                    <tr>
+                        <th>Type</th>
+                        <th>Peak flux (W/m<sup>2</sup>) between 100–800 picometers</th>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>&lt; 10<sup>−7</sup></td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>10<sup>−7</sup> - 10<sup>−6</sup></td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>10<sup>−6</sup> - 10<sup>−5</sup></td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>10<sup>−5</sup> - 10<sup>−4</sup></td>
+                    </tr>
+                    <tr>
+                        <td>X</td>
+                        <td>&gt; 10<sup>−3</sup></td>
+                    </tr>
+                </table>
+                 <table>
+                    <caption id="cmeClassificationCaption"></caption>
+                    <tr>
+                        <th>Type</th>
+                        <th>Meaning</th>
+                        <th>Travel Speed (m/s)</th>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td><a href="https://www.space.com/22215-solar-wind.html" target="_blank" class="normalLink">Solar Wind</a></td>
+                        <td>&lt; 5*10<sup>5</sup></td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>Common</td>
+                        <td>5*10<sup>5</sup> - 10<sup>6</sup></td>
+                    </tr>
+                    <tr>
+                        <td>O</td>
+                        <td>Occasion</td>
+                        <td>10<sup>6</sup> - 2*10<sup>6</sup></td>
+                    </tr>
+                    <tr>
+                        <td>R</td>
+                        <td>Rare</td>
+                        <td>2*10<sup>6</sup> - 3*10<sup>6</sup></td>
+                    </tr>
+                    <tr>
+                        <td>ER</td>
+                        <td>Extremely Rare</td>
+                        <td>&gt; 3*10<sup>6</sup></td>
+                    </tr>
+                </table>
+            </div>
+            <p id="historySpace2"></p>
+            <div class="visualAideContainer">
+                <div class="imageContainer">
+                    <img src="Assets/Images/Visual Aide/Aurora Borealis.jpg" alt="Aurora Borealis"/>
+                </div>
+                <div class="captionContainer">
+                    <p>The Aurora Borealis as captured by an artist. For information about the image, visit this <a href="https://americanart.si.edu/artwork/aurora-borealis-4806" target="_blank" class="normalLink">link</a>.<br><br>[Image courtesy of Frederick Edwin Church]</p>
+                </div>
+            </div>
+            <p id="historySpace3"></p>
+            <div class="visualAideContainer">
+                <div class="imageContainer">
+                    <img src="Assets/Images/Visual Aide/Satellite.png" alt="Satellite" class="animateTilt"/>
+                </div>
+                <div class="captionContainer">
+                    <p>Satellites, like this one, are at risk from the damaging solar eruptions.<br><br>[Image Courtesy of NASA]</p>
+                </div>
+            </div>
+            <p id="historySpace4"></p>
+        </div>
+        <div class="contentToBodyBackgroundBlur"></div>
+
+        <div class="headerContainer">
+            <h2 id="dataHeader">Data: The Analytical Quest</h2>
+        </div>
+        <div class="contentContainer">
+            <p id="dataSpace1"></p>
+            <div class="visualAideContainer">
+                <div class="imageContainer">
+                    <div class="zoomContainer">
+                        <img src="Assets/Images/Visual Aide/LWA.jpg" alt="OVRO-LWA" class="zoomAble"/>
+                    </div>
+                </div>
+                <div class="captionContainer">
+                    <p>A close up image of the OVRO-LWA at night, where the stars are visible due to lack of light pollution.<br><br>[Image courtesy of Gregg Hallinan]</p>
+                </div>
+            </div>
+            <p id="dataSpace2"></p>
+            <div class="visualAideContainer">
+                <div class="imageContainer">
+                    <img src="Assets/Images/Visual Aide/Corrupted Radio Image.jpg" alt="Corrupted Radio Image" <!--class="animateBlur"-->/>
+                </div>
+                <div class="captionContainer">
+                    <p>An example of a corrupted image due to radio frequency interference. It was observed on July 24, 2019.<br><br>[Image courtesy of Marin Anderson]</p>
+                </div>
+            </div>
+            <p id="dataSpace3"></p>
+        </div>
+        <div class="contentToBodyBackgroundBlur"></div>
+
+        <div class="headerContainer">
+            <h2 id="exoplanetHeader">Exoplanet: The Search for Life</h2>
+        </div>
+        <div class="contentContainer">
+            <p id="exoplanetSpace1"></p>
+            <div class="visualAideContainer">
+                <div class="imageContainer">
+                    <img src="Assets/Images/Visual Aide/Mars&CME.jpg" alt="Mars"/>
+                </div>
+                <div class="captionContainer">
+                    <p>An illustration of Mars as its atmosphere is being stripped away by a Coronal Mass Ejection.<br><br>[Image courtesy of NASA]</p>
+                </div>
+            </div>
+            <p id="exoplanetSpace2"></p>
+            <div class="visualAideContainer">
+                <div class="imageContainer">
+                    <img src="Assets/Images/Visual Aide/Exoplanet.jpg" alt="Exoplanet" class="animateFlip"/>
+                </div>
+                <div class="captionContainer">
+                    <p>A comparison between Kepler-452b, an exoplanet, and Earth.<br><br>[Image courtesy of Ames and Pyle]</p>
+                </div>
+            </div>
+        </div>
+        <div class="contentToBodyBackgroundBlur"></div>
+
+        <div class="headerContainer">
+            <h2 id="creditHeader">Credit: The Brains Behind the Screen</h2>
+        </div>
+        <div class="contentContainer">
+            <p id="creditSpace1"></p><br>
+            <div class="biographyContainer">
+                <div class="individualContainer">
+                    <h2>Juan Castro</h2>
+                    <center>
+                        <div class="flipCardContainer">
+                            <div class="flipCardInner">
+                                <div class="flipCardFront">
+                                    <img src="Assets/Images/Photograph/Juan Castro/Primary.jpg" alt="Juan Castro"/>
+                                </div>
+                                <div class="flipCardBack">
+                                    <img src="Assets/Images/Photograph/Juan Castro/Secondary.jpg" alt="Group Photo"/>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+                    <!--<div class="photographContainer">
+                        <center>
+                            <img src="Assets/Images/Photograph/Juan Castro/Primary.jpg" alt="Juan Castro"/>
+                        </center>
+                    </div>--><br>
+                    <ul>
+                        <li>Role: Writer</li>
+                        <li>Contact: <a href="mailto:juancastro036@gmail.com" target="_blank">juancastro036@gmail.com</a></li>
+                    </ul>
+                    <p>Juan Castro is studying at Pasadena High School for his high school diploma. In his free time, he enjoys playing online video games, watching movies, and spending time with his friends.</p>
+                </div>
+                <div class="individualContainer">
+                    <h2><!--Joseph Digiovanni-->Joseph</h2>
+                    <center>
+                        <div class="flipCardContainer">
+                            <div class="flipCardInner">
+                                <div class="flipCardFront">
+                                    <img src="Assets/Images/Photograph/Joseph DiGiovanni/Primary.jpg" alt="Joseph Digiovanni"/>
+                                </div>
+                                <div class="flipCardBack">
+                                    <img src="Assets/Images/Photograph/Joseph DiGiovanni/Secondary.jpg" alt="App Academy"/>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+                    <!--<div class="photographContainer">
+                        <center>
+                            <img src="Assets/Images/Photograph/Joseph DiGiovanni/Primary.jpg" alt="Joseph DiGiovanni"/>
+                        </center>
+                    </div>--><br>
+                    <ul>
+                        <li>Role: Editor</li>
+                        <li>Contact: <a href="mailto:joseph.n.digiovanni@gmail.com" target="_blank">joseph.n.digiovanni@gmail.com</a></li>
+                    </ul>
+                    <p>Joseph DiGiovanni is currently studying at pasadena high school for his high school diploma. In his free time, he listens to music, stargazes, and publishes an animated summary of the website: <a href='https://docs.google.com/presentation/d/16WMrjn0GHzrDIuKKAGMZ1MdTXBIKTH7gCemBhnB53Zw/edit?usp=sharing' target='_blank' class='normalLink'>Google Slide</a>.</p>
+                </div>
+                <div class="individualContainer">
+                    <h2>Khai Sam</h2>
+                    <center>
+                        <div class="flipCardContainer">
+                            <div class="flipCardInner">
+                                <div class="flipCardFront">
+                                    <img src="Assets/Images/Photograph/Khai Sam/Primary.jpg" alt="Khai Sam"/>
+                                </div>
+                                <div class="flipCardBack">
+                                    <img src="Assets/Images/Photograph/Khai Sam/Secondary.jpg" alt="Khai Sam"/>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+                    <!--<div class="photographContainer">
+                        <center>
+                            <img src="Assets/Images/Photograph/Khai Sam/Primary.jpg" alt="Khai Sam"/>
+                        </center>
+                    </div>--><br>
+                    <ul>
+                        <li>Role: Programmer</li>
+                        <li>Contact: <a href="mailto:samkhaichi@gmail.com" target="_blank">samkhaichi@gmail.com</a></li>
+                    </ul>
+                    <p>Khai Sam is studying at Pasadena High School for his high school diploma. In his free time, he likes to play board games with his friends and enjoys a good science-fiction book.</p>
+                </div><br>
+            </div>
+        </div>
+        <div class="contentToBodyBackgroundBlur"></div>
+
+        <div class="headerContainer">
+            <h2 id="referenceHeader">Reference: Avoiding Copyright Strikes</h2>
+        </div>
+        <div class="contentContainer">
+            <div id="referenceSpace1"></div><br>
+        </div>
+        <div class="contentToBodyBackgroundBlur"></div>
+
+        <p id="lastUpdateText">Last update: August 9, 2019</p>
+        <!--<div id="websiteSun">
+            <img src="http://pngimg.com/uploads/sun/sun_PNG13424.png" alt="Sun"/>
+        </div>-->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="function.js"></script>
+    </body>
+</html>
