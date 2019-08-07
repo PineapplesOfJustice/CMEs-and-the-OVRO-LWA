@@ -785,7 +785,7 @@ var contentData = [
     },
     {
         destination: "creditSpace1",
-        content: "Great achievements are the result of many. This website cannot be brought to you without the gracious contribution from SOHO, NASA and Hallinan Group, Caltech. And to <a href='spaceweather.com' target='_blank' class='normalLink'>spaceweather.com</a> for bringing astronomy news to everyday men.<br>Science and astronomy has, and always will be, possible by the people, so to readers like you, thank you. May you have fortune in the path you choose to engage.<br><span style='float: right;'>- Caltech Interns, Summer 2019</span><br>",
+        content: "Great achievements are the result of many. This website cannot be brought to you without the gracious contribution from SOHO, NASA and Hallinan Group, Caltech. And to <a href='http://www.spaceweather.com' target='_blank' class='normalLink'>spaceweather.com</a> for bringing astronomy news to everyday men.<br>Science and astronomy has, and always will be, possible by the people, so to readers like you, thank you. May you have fortune in the path you choose to engage.<br><span style='float: right;'>- Caltech Interns, Summer 2019</span><br>",
     },
     {
         destination: "flareClassificationCaption",
