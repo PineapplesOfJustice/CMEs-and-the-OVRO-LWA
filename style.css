@@ -476,8 +476,7 @@ sup:hover a span {
 
 .headerContainer {
 	/*width: 100vw;*/
-	padding: 10px;
-	padding-left: 5vmax;
+	padding: 10px 10vmax;
 	margin-top: calc(5px + 5vh);
 	background: linear-gradient(rgba(38, 26, 46, 0.2), rgba(38, 26, 46, 0.9), rgba(0, 0, 0, 0.5));
     /*background: linear-gradient(rgba(98, 26, 56, 0.2), rgba(58, 26, 96, 0.9), rgba(0, 0, 0, 0.6));*/
